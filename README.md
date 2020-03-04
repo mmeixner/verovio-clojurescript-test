@@ -1,5 +1,7 @@
 # Verovio in a ClojureScript/Reagent project
 
+Clone this, go to into it's folder.
+
 #### Install dependencies
 ```shell
 yarn install || npm install
