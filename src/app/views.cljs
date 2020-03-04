@@ -99,58 +99,10 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(comment
-;; for testing ...
- (def tie-test "<mei xmlns=\"http://www.music-encoding.org/ns/mei\">
-  <meiHead>
-    <fileDesc>
-      <titleStmt>
-        <title></title>
-      </titleStmt>
-      <pubStmt></pubStmt>
-    </fileDesc>
-  </meiHead>
-  <music>
-    <body>
-      <mdiv>
-        <score>
-          <scoreDef key.sig=\"0\" >
-            <staffGrp>
-              <staffDef n=\"1\" lines=\"5\" clef.shape=\"G\" clef.line=\"2\">
-              </staffDef>
-            </staffGrp>
-          </scoreDef>
-          <section>
-            <measure n=\"1\">
-              <staff n=\"1\">
-                <layer n=\"1\">
-                  <note tie=\"i\" oct=\"4\" xml:id=\"note-27\" dur=\"4\" pname=\"c\"/>
-                  <note tie=\"t\" oct=\"4\" xml:id=\"note-28\" dur=\"4\" pname=\"c\"/>
-                </layer>
-              </staff>
-            </measure>
-          </section>
-        </score>
-      </mdiv>
-    </body>
-  </music>)
-</mei>")
-
- (defn tie-score []
-   [:div.svg
-     {:dangerouslySetInnerHTML
-       {:__html (.renderData js/vrvToolkit tie-test
-                             (clj->js {:scale (int (:scale @app-state))}))}}]))
-
-;; surprising result: ties don't show up, if not in a <measure> ...
-
-
 (defn score []
   [:div.svg
     {:dangerouslySetInnerHTML
       {:__html (render-score (:mei @app-state))}}])
-
-
 
 
 ;; helpers to look into data:
@@ -168,9 +120,6 @@
   [:div.look
    [:hr]
    [:p (render-score (:mei @app-state))]])
-
-
-
 ;;_________________________________________
 
 (defn app []
@@ -182,5 +131,5 @@
    [score]
 
    #_[result-hiccup]
-   [result-xml]
-   [result-svg]])
+   #_[result-xml]
+   #_[result-svg]])
