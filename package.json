@@ -1,0 +1,28 @@
+{
+  "name": "verovio-clojurescript-test",
+  "version": "0.0.1",
+  "description": "Trying to implement Verovio with Clojurescript",
+  "repository": {
+    "type": "git"
+  },
+  "author": {
+    "name": "Michael Meixner",
+    "email": "michaelmeixner@me.com"
+  },
+  "license": "EPL-2.0",
+  "scripts": {
+    "dev": "shadow-cljs watch app",
+    "release": "shadow-cljs release app",
+    "server": "shadow-cljs server",
+    "clean": "rm -rf target && rm -rf public/js",
+    "clean-win": "rmdir /s /q public/js & rmdir /s /q target"
+  },
+  "dependencies": {
+    "create-react-class": "^15.6.3",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "devDependencies": {
+    "shadow-cljs": "^2.6.10"
+  }
+}

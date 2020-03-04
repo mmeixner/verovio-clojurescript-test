@@ -1,0 +1,23 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+textarea {
+  float:left;
+  font-family: monospace;
+  font-size: 14px;
+  margin: 8px;
+  margin-left: 0;
+  padding: 8px;
+   }
+
+.input {font-size: 16px;}
+
+.look{font-size: 12px;}
+
+.svg {height: 300px;}
+
+.explanation {
+  font-size: 12px;
+  font-style: italic;
+  }
