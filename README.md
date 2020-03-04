@@ -1,8 +1,4 @@
-# shadow-cljs, reagent template
-
-`shadow-cljs` is a build tool for ClojureScript.
-
-`reagent` is a ClojureScript wrapper for [React](https://reactjs.org/).
+# Verovio in a ClojureScript/Reagent project
 
 #### Install dependencies
 ```shell
@@ -14,3 +10,6 @@ yarn install || npm install
 yarn dev || npm run dev
 ```
 (template by Jacek Schae)
+
+This project is right now only an experiment with integrating Verovio.
+It has some rudimentary input grammar. Obviously a proper structure of meter and beaming is missing.
