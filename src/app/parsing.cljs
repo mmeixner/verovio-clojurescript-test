@@ -97,24 +97,25 @@ tie = '_'
               (conj acc e)))
     [] es))
 
-;; generate IDs for the notes and rests
-(def id-gen (atom 1))
+;; generate IDs for the notes and rests, if we want/need our own
+;; ... otherwise there is an ID generated for each event automatically
+#_(def id-gen (atom 1))
 
-(defn note-id []
-  (swap! id-gen inc)
-  {:xml:id (str "note-" @id-gen)})
+#_(defn note-id []
+    (swap! id-gen inc)
+    {:xml:id (str "note-" @id-gen)})
 
-(defn rest-id []
-  (swap! id-gen inc)
-  {:xml:id (str "rest-" @id-gen)})
+#_(defn rest-id []
+    (swap! id-gen inc)
+    {:xml:id (str "rest-" @id-gen)})
 
 (defn make-note-or-rest [e]
   (cond
     (:step e) [:note (merge (specify-pitch e)
-                            (note-id))]
+                            #_(note-id))]
 
     (:rest e) [:rest (merge (dissoc e :rest)
-                            (rest-id))]))
+                            #_(rest-id))]))
 
 (defn build-notes [s]
      (->> (parse-music-input s)
