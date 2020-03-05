@@ -12,7 +12,8 @@
    [:h1 "Display music with Verovio"]
    [:h3 "Enter some music"]
    [:p.explanation "This is incomplete in so far, as meter and beaming is not implemeted yet."]
-   [:p "Input a duration first (1 for whole note, 2 for half note etc.); dotting a value is possible. Then type note names (c, d, e etc.).
+   [:p "Input a duration first (1 for whole note, 2 for half note etc.); dotting a value is possible.
+   Then type note names (c, d, e etc.). For accidentals use: '#' (sharp), '-' (flat), 'n' (natural), 'x' (double sharp) and '--' (double flat).
   c … b is middle octave, C … B lower, cc … bb upper. Type 'r' for a rest, _ (underscore) for a tie."]
    [:p.explanation "Try: Select one flat from the key menu. Type '8 g f 4 f_ 2f 4 r 8 a b cc# dd ee ff 4 ee 8 dd dd _ 2. dd ' (You can leave out the spaces)."]])
 
@@ -103,6 +104,19 @@
   [:div.svg
     {:dangerouslySetInnerHTML
       {:__html (render-score (:mei @app-state))}}])
+
+;; trying to implement event listeners
+
+(defn clickables [class]
+  (.querySelectorAll js/document class))
+
+(defn clicked! [e]
+  (let [v (str (-> e .-target))]
+    (.alert js/window (str "clicked:" v))))
+
+(map (.addEventListener js/document "click" clicked!)
+     (clickables ".note"))
+
 
 
 ;; helpers to look into data:
